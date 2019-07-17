@@ -38,7 +38,6 @@ def main(mac_lookup):
     """
     api_key = os.environ.get('API_KEY')
     mac_return = get_mac_addr(api_key, mac_lookup).content
-    print(type(json.loads(mac_return.decode("utf-8"))))
     return json.loads(mac_return.decode("utf-8"))
 
 if __name__ == "__main__":

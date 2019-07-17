@@ -22,11 +22,26 @@ make image
 
 ### Usage
 
-To run the docker container you must feed a valid MAC address to the command line via `docker run`
+To run the docker container you must feed a valid MAC address to the command line via `docker run`. It's default output is unformatted JSON
 
 ```
 sudo docker run -ti mac_lookup:1.0.0 44:38:39:ff:ef:57
 ```
+
+There are additional flags that can be specified if you want YAML, JSON, or Full Details about the MAC address.
+
+```
+sudo docker run -ti mac_lookup:1.0.0 44:38:39:ff:ef:57 --details
+```
+
+```
+sudo docker run -ti mac_lookup:1.0.0 44:38:39:ff:ef:57 --yaml
+```
+
+```
+sudo docker run -ti mac_lookup:1.0.0 44:38:39:ff:ef:57 --json
+```
+
 
 ### Tests
 
