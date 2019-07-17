@@ -28,7 +28,7 @@ To run the docker container you must feed a valid MAC address to the command lin
 sudo docker run -ti mac_lookup:1.0.0 44:38:39:ff:ef:57
 ```
 
-There are additional flags that can be specified if you want YAML, JSON, or Full Details about the MAC address.
+There are additional flags that can be specified if you want YAML output about just the vendor, JSON output about just the vendor, or Full Details about the MAC address in an easily readable format.
 
 ```
 sudo docker run -ti mac_lookup:1.0.0 44:38:39:ff:ef:57 --details
