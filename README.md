@@ -20,7 +20,7 @@ Or you may create the Docker container with the Built in Makefile
 make image
 ```
 
-###Usage
+### Usage
 
 To run the docker container you must feed a valid MAC address to the command line via `docker run`
 
@@ -28,7 +28,7 @@ To run the docker container you must feed a valid MAC address to the command lin
 sudo docker run -ti mac_lookup:1.0.0 44:38:39:ff:ef:57
 ```
 
-###Tests
+### Tests
 
 As a fun little exercise I've added a linter test to validate the Python3 code within the /scripts/mac_addr_lookup.py script. You can run the tests via the Makefile
 
