@@ -43,8 +43,6 @@ def main(mac_lookup):
 if __name__ == "__main__":
     PARSER = argparse.ArgumentParser(description= \
 			"Command line tool for accessing Mac Address info from macaddress.io")
-    PARSER.add_argument("--details", action='store_true', \
-			default=False, help="Print the full MAC address output in JSON")
     PARSER.add_argument("--json", action='store_true',  \
 			default=False, help="Pretty Print JSON output (default: False)")
     PARSER.add_argument("--yaml", action='store_true', \
@@ -53,11 +51,11 @@ if __name__ == "__main__":
 			help="MAC Address to perform a lookup")
     ARGS = PARSER.parse_args()
     MAC_OUTPUT = main(ARGS.mac_address)
-    if ARGS.details:
-        print(json.dumps(MAC_OUTPUT, sort_keys=True, indent=4))
-    elif ARGS.yaml and 'vendorDetails' in MAC_OUTPUT:
-        print(yaml.safe_dump(MAC_OUTPUT['vendorDetails'], sort_keys=True, indent=2))
-    elif ARGS.json and 'vendorDetails' in MAC_OUTPUT:
+    if 'vendorDetails' in MAC_OUTPUT:
         print(json.dumps(MAC_OUTPUT['vendorDetails'], sort_keys=True, indent=4))
+    elif ARGS.yaml:
+        print(yaml.safe_dump(MAC_OUTPUT, sort_keys=True, indent=2))
+    elif ARGS.json:
+        print(json.dumps(MAC_OUTPUT, sort_keys=True, indent=4))
     else:
         print(json.dumps(MAC_OUTPUT))
