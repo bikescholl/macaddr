@@ -54,7 +54,7 @@ if __name__ == "__main__":
     if ARGS.yaml:
         print(yaml.safe_dump(MAC_OUTPUT, sort_keys=True, indent=2))
     elif ARGS.json:
-        print(json.dumps(MAC_OUTPUT, sort_keys=True, indent=4)) 
+        print(json.dumps(MAC_OUTPUT, sort_keys=True, indent=4))
     elif 'vendorDetails' in MAC_OUTPUT:
         print(json.dumps(MAC_OUTPUT['vendorDetails'], sort_keys=True, indent=4))
     else:
