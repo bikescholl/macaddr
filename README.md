@@ -6,18 +6,20 @@ This was a fun little exercise around querying an API in python using standard r
 
 Docker must be installed and running on your system in order for this to work. It must also be able to pull from docker.io.
 
+In addition these Docker containers run under certain users to prevent root system level access within the container. It's also assumed that the user running these builds has the ability to run docker under the sudo context.
+
 ### Installing
 
-To build the Docker containers to operate this command line tool you can either run via a standard docker build command and feed in your own API key like so:
-
-```
-sudo docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} . --build-args API_KEY=${API_KEY}
-```
-
-Or you may create the Docker container with the Built in Makefile
+To build the Docker containers to operate this command line tool you can run the built in Makefile. This uses a built in API key. 
 
 ```
 make image
+```
+
+Alternatively it is recommended you use your own API key when attempting to run this by running the Docker build manually.
+
+```
+sudo docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} . --build-args API_KEY=${API_KEY}
 ```
 
 ### Usage
