@@ -51,11 +51,11 @@ if __name__ == "__main__":
 			help="MAC Address to perform a lookup")
     ARGS = PARSER.parse_args()
     MAC_OUTPUT = main(ARGS.mac_address)
-    if 'vendorDetails' in MAC_OUTPUT:
-        print(json.dumps(MAC_OUTPUT['vendorDetails'], sort_keys=True, indent=4))
-    elif ARGS.yaml:
+    if ARGS.yaml:
         print(yaml.safe_dump(MAC_OUTPUT, sort_keys=True, indent=2))
     elif ARGS.json:
-        print(json.dumps(MAC_OUTPUT, sort_keys=True, indent=4))
+        print(json.dumps(MAC_OUTPUT, sort_keys=True, indent=4)) 
+    elif 'vendorDetails' in MAC_OUTPUT:
+        print(json.dumps(MAC_OUTPUT['vendorDetails'], sort_keys=True, indent=4))
     else:
         print(json.dumps(MAC_OUTPUT))
